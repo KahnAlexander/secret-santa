@@ -1,8 +1,6 @@
 name: Deploy to Github Pages  # Defines the name of the GitHub Actions workflow.
 
-on:
-    pull_request:
-        types: [opened, sunchronize, reopened]
+on: [pull_request]
 
 jobs:
     build:
