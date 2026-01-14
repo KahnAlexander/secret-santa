@@ -1,9 +1,9 @@
 name: Deploy to Github Pages  # Defines the name of the GitHub Actions workflow.
 
 on:
-    push:
-        branches:
-            - develop  # Triggers the workflow on each push to the 'develop' branch.
+    pull_request:
+        branches: main
+        types: [opened, sunchronize, reopened]
 
 jobs:
     build:
