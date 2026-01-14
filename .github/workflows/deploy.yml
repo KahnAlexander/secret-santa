@@ -35,7 +35,29 @@ jobs:
 
         - name: Upload artifact  # Uploads the build artifact.
           uses: actions/upload-pages-artifact@v2
-      
+
+    test:
+      name: Test Application and run format and lint
+      needs: build
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Run Formatter
+          run: |
+            npm run format  
+        
+        - name: Run Linter
+          run: |
+            npm run lint
+
+        - name: Run Unit Tests
+          run: |
+            npm run test:unit
+
+        - name: Run E2E Tests
+          run: |
+            npm run test:e2e
+    
     deploy:
       name: Deploy Application  # Defines the name of the deployment job.
 
